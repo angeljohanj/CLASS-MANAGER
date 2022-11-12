@@ -1,0 +1,54 @@
+﻿@model List<StudentsModel>
+@{
+    ViewData["Title"] = "ListStu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card bg-dark text-white">
+    <img src="~/images/pexels-buro-millennial-1438072.jpg" class="card-img" alt="...">
+    <div class="card-img-overlay">
+        <h5 class="card-title">STUDENT ROSTER</h5>
+        <hr />
+        <a asp-action="SaveStu" asp-controller="StudentMaintainer" class="btn btn-success">Add a new student</a>
+        <hr />
+        <div class="card">
+            <div class="card-header">             
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered ">
+
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Cedula/ID</th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var i in Model)
+                    {
+
+                        <tr>
+                            <td>@i.StuName</td>
+                            <td>@i.StuLast</td>
+                            <td>@i.StuMail</td>
+                            <td>@i.StuCed</td>
+                            <td>
+                                <a asp-action="EditStu" asp-controller="StudentMaintainer" class="btn btn-primary btn-sm" asp-route-studentID="@i.StudentID">Edit</a>
+                                <a asp-action="DelStu" asp-controller="StudentMaintainer" class="btn btn-danger btn-sm" asp-route-studentID="@i.StudentID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        
+
+    </div>
+</div>

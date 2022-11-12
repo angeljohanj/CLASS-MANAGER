@@ -1,0 +1,25 @@
+﻿@model StudentsModel;
+@{
+    ViewData["Title"] = "DelStu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">DELETE STUDENT</h5>
+        <hr />
+        <form method="post" asp-action="DelStu" asp-controller="StudentMaintainer">
+            <input type="hidden" class="form-control" id="exampleInputEmail1" asp-for="StudentID">
+            <div class="alert alert-danger" role="alert">
+                Are you sure you want to delete @Html.DisplayTextFor(m=>m.StuName) from roster?
+            </div>
+
+            <button type="submit" class="btn btn-primary">Delete</button>
+            <a asp-action="ListStu" asp-controller="StudentMaintainer" class="btn btn-warning">Cancel</a>
+        </form>
+
+
+    </div>
+</div>
+
+

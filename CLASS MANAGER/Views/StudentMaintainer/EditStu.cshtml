@@ -1,0 +1,44 @@
+﻿@model StudentsModel;
+@{
+    ViewData["Title"] = "EditStu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">EDIT STUDENT</h5>
+        <hr />
+        <form method="post" asp-action="EditStu" asp-controller="StudentMaintainer">
+            <input type="hidden" class="form-control" id="exampleInputEmail1" asp-for="StudentID">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="StuName">
+                <div id="emailHelp" class="form-text">Make sure to type student's name as it appears on their ID</div>
+                <span asp-validation-for="StuName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lastname</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" asp-for="StuLast">
+                <span asp-validation-for="StuLast" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleInputPassword1" asp-for="StuMail">
+                <span asp-validation-for="StuMail" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cedula/ID</label>
+                <input type="text" class="form-control" placeholder="Example: 402-1234566-7" id="exampleInputPassword1"
+                       asp-for="StuCed">
+                <span asp-validation-for="StuCed" class="text-danger"></span>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Confirm edit</button>
+            <a asp-action="ListStu" asp-controller="StudentMaintainer" class="btn btn-warning">Go back to roster</a>
+        </form>
+
+
+    </div>
+</div>
+

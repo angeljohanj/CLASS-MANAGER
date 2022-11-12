@@ -1,0 +1,53 @@
+﻿@model List<TeachersModel>;
+@{
+    ViewData["Title"] = "ListTeachers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card w-75">
+    <div class="card-body">
+        <h5 class="card-title">TEACHER ROSTER</h5>
+        <hr />
+        <a asp-action="SaveTeacher" asp-controller="TeachersMaintainer" class="btn btn-success">Add new teacher</a>
+        <hr />
+        <table class="table table-bordered ">
+
+
+            <thead class="table-dark">
+                <tr>
+
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Cedula/ID</th>
+                    <th>Address</th>
+                    <th>Telephone</th>
+                    <th>Class</th>
+                    <th>Center</th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+                @foreach( var i in Model){
+                    <tr>
+                        <td>@i.tchName</td>
+                    <td>@i.tchLastname</td>
+                    <td>@i.tchAge</td>
+                    <td>@i.tchCed</td>
+                    <td>@i.tchAddress</td>
+                    <td>@i.tchTel</td>
+                    <td>@i.tchClass</td>
+                    <td>@i.tchCenter</td>
+                    <td>
+                        <a asp-action="DeleteTeacher" asp-controller="TeachersMaintainer" asp-route-teacherID="@i.tchID" class="btn btn-danger btn-sm">Delete</a>
+                        <a asp-action="EditTeacher" asp-controller="TeachersMaintainer" asp-route-teacherID="@i.tchID" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                    </tr>
+                }
+        </table>
+
+
+    </div>
+</div>

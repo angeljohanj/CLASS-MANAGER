@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+   background-image:url(../images/img3.jpg);
+   background-size: 100% 100%;
+  
+}
+.title{
+    color: white;
+}
+
+#title{
+    color:black;
+}
+
+.login{
+
+    background-color:white;
+    border-radius: 15px;
+    width:350px;
+    padding: 20px;
+}
+
+.signup {
+    background-color: white;
+    border-radius: 15px;
+    width: 700px;
+    padding: 20px;
+    margin-left:10px;
+}
+
+
+
