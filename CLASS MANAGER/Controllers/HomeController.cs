@@ -16,17 +16,7 @@ namespace CLASS_MANAGER.Controllers
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult SignupAndLogin()
-        {
-            return View();
-        }
-
-        public IActionResult TeachersView()
-        {
-            return View();
-        }
+        }    
 
         public IActionResult Privacy()
         {

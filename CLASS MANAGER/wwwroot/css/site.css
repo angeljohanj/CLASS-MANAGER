@@ -33,6 +33,7 @@ body {
     border-radius: 15px;
     width:350px;
     padding: 20px;
+    margin-bottom:300px;
 }
 
 .signup {
@@ -40,7 +41,18 @@ body {
     border-radius: 15px;
     width: 700px;
     padding: 20px;
-    margin-left:10px;
+    margin-left: 10px;
+    margin-bottom: 200px;
+}
+
+.forgotPass{
+    margin-left:100px;
+}
+
+.logo {
+    width: 150px;
+    height: 40px;
+    margin-bottom:5px;
 }
 
 
