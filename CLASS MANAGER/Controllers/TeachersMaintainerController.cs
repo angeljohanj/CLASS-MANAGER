@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CLASS_MANAGER.Models;
 using CLASS_MANAGER.Data;
+using Microsoft.AspNetCore.Authorization;
 namespace CLASS_MANAGER.Controllers
 {
+    [Authorize]
     public class TeachersMaintainerController : Controller
     {
 

@@ -2,15 +2,17 @@
 using System.Data;
 using CLASS_MANAGER.Models;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.CodeAnalysis;
+using System.Reflection.Metadata;
 
 namespace CLASS_MANAGER.Data
 {
     public class UsersData
     {
 
-        public bool ValidateUser (UserModel oUser)
+        public UserModel ValidateUser (UserModel oUser)
         {
-            bool ans;
+            UserModel isUser = new UserModel();
 
             try
             {
@@ -26,13 +28,14 @@ namespace CLASS_MANAGER.Data
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     using (var dReader = sqlCmd.ExecuteReader())
                     {
-                        if (dReader.Read()){
-                            
-                            ans = true;
-                            
+                        while (dReader.Read()){
+
+                            isUser.UserName = dReader["UserName"].ToString();
+                            isUser.Email = dReader["Email"].ToString();
+                            isUser.UserRole = dReader["UserRole"].ToString();
 
                         }
-                        else { ans = false;}                        
+                                                                 
                     }                    
                  
                 }
@@ -40,10 +43,10 @@ namespace CLASS_MANAGER.Data
             catch(Exception ex)
             {
                 string err = ex.Message;
-                 ans = false;
+                 
             }
 
-            return ans;
+            return isUser;
             
             
         }

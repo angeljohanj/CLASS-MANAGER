@@ -13,7 +13,7 @@ namespace CLASS_MANAGER.Models
         public string? UserPassword { get; set; }
 
         [Required(ErrorMessage = "This field role is required")]
-        public string? UserRole { get; set; }
+        public string UserRole { get; set; }
 
         [Required(ErrorMessage = "This field name is required")]
         public string? Name { get; set; }
