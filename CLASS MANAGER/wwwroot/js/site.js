@@ -18,6 +18,6 @@ function validator() {
         alert("Please input password")
     } else {
         alert("input username and password to log in");
-    }
-   
+    }   
 }
+

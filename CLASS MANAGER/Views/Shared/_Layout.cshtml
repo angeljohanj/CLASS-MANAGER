@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CLASS_MANAGER.styles.css" asp-append-version="true" />
+    <!--for icon and font styling-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <header>
@@ -29,10 +31,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="StudentMaintainer" asp-action="ListStu">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TeachersMaintainer" asp-action="ListTeachers">Teachers</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListTeachers">Teachers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="Signup">Signup</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListCoordinators">Coordinators</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TeachersMaintainer" asp-action="ListTeachers">Supervisors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="NewUser">New user</a>
                         </li>
 
                         <li class="nav-item">

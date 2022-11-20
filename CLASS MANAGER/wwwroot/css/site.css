@@ -49,11 +49,45 @@ body {
     margin-left:100px;
 }
 
+/*Styling for layout*/
+
 .logo {
     width: 150px;
     height: 40px;
     margin-bottom:5px;
 }
 
+/*For teacher-management views*/
+td {
+    max-width: 166px !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+.tlist-col {
+    background-color: white;
+    border-radius: 20px;
+    justify-content: center;
+    width: 1070px;
+    max-width: max-content;
+    margin-bottom:500px;
+}
 
+.tEdit-col {
+    background-color: white;
+    border-radius: 20px;
+    align-content: center;
+    justify-content: center;
+}
+
+.tDel-col {
+    background-color: white;
+    border-radius: 20px;
+    align-content: center;
+    justify-content: center;
+}
+/*for font and icon styling*/
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
+}
 

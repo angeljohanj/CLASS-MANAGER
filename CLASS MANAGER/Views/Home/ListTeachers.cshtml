@@ -1,0 +1,55 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "ListTeachers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container tlist-col">
+    <div class="row">
+        <div class="col ">
+            <h3>Teacher Roster</h3>
+            <a asp-action="NewUser" asp-controller="UserMaintainer" class="btn btn-success">Add new teacher</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
+                        <th>Age</th>
+                        <th>Cedula</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Shift</th>
+                        <th>Center</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>                 
+                         @foreach(var i in Model){
+                             <tr>
+                            <td>@i.UserName</td>
+                            <td>@i.Name</td>
+                            <td>@i.Lastname</td>
+                            <td>@i.Age</td>
+                            <td>@i.Cedula</td>
+                            <td>@i.Address</td>
+                            <td>@i.Email</td>
+                            <td>@i.Telephone</td>
+                            <td>@i.Shift</td>
+                            <td>@i.Center</td>
+                            <td>
+                            <div class="btn-group">
+                                <span class="material-symbols-outlined">
+                                    <a asp-action="DeleteTeacher" asp-controller="Home" class="btn btn-danger" asp-route-userID="@i.UserID">Delete</a>
+                                </span>
+                                <span class="material-symbols-outlined">
+                                    <a asp-action="EditTeacher" asp-controller="Home" class="btn btn-primary " asp-route-userID="@i.UserID">Edit</a>
+                                </span>   
+                            </div>
+                            </td>
+                            </tr>
+                         } 
+            </table>
+        </div>
+    </div>
+ </div>

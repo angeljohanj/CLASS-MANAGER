@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.Build.Evaluation;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace CLASS_MANAGER.Models
@@ -13,7 +14,7 @@ namespace CLASS_MANAGER.Models
         public string? UserPassword { get; set; }
 
         [Required(ErrorMessage = "This field role is required")]
-        public string UserRole { get; set; }
+        public string? UserRole { get; set; }
 
         [Required(ErrorMessage = "This field name is required")]
         public string? Name { get; set; }
@@ -35,6 +36,11 @@ namespace CLASS_MANAGER.Models
 
         [Required(ErrorMessage = "This field telephone is required")]
         public string? Telephone { get; set; }
+        [Required(ErrorMessage = "This field shift is required")]
+        public string? Shift { get; set; }
+        [Required(ErrorMessage = "This field center is required")]
+        public string? Center { get; set; }
+
 
 
     }

@@ -1,0 +1,25 @@
+﻿@model UserModel
+@{
+    ViewData["Title"] = "DeleteTeacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col tDel-col">
+            <div>
+                <h3>Delete</h3>
+            </div>
+        <hr>
+                <form asp-action="DeleteTeacher" asp-controller="Home" method="post" >
+                <input type="hidden" asp-for="UserID" />
+                    <div class="alert alert-danger" role="alert">
+                    
+                    Are you sure you want to delete @Html.DisplayTextFor(m=>m.Name) from teachers?
+                    </div>
+                <button class="btn btn-danger" type="submit" >Confirm delete</button>
+                </form>
+        </div>
+    </div>
+</div>
+

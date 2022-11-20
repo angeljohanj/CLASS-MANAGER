@@ -5,6 +5,7 @@ using CLASS_MANAGER.Controllers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 
+//----------For authentication and claims--------->>>
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
@@ -17,6 +18,7 @@ namespace CLASS_MANAGER.Controllers
 
         UsersData _userData = new UsersData();
 
+        ///=========================THESE VIEWS ARE FOR THE LOGIN, NEW USER AND SIGNOUT=========>>>>>>>>>>>>>
         //---------Method only returns Login View Form---------------->>>>>
         public IActionResult Login()
         {
@@ -36,13 +38,13 @@ namespace CLASS_MANAGER.Controllers
                     new Claim("Email", isUser.Email)
                 };
 
-                foreach (var rol in isUser.UserRole)
+                foreach (var role in isUser.UserRole)
                 {
-                    claims.Add(new Claim(ClaimTypes.Role, rol.ToString()));
+                    claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
                 }
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
+                 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
 
@@ -51,12 +53,11 @@ namespace CLASS_MANAGER.Controllers
                 else
                 {
                     return View();
-                }
-            
+                }            
         }     
         
 
-        public IActionResult Signup()
+        public IActionResult NewUser()
         {
 
             return View();
@@ -64,7 +65,7 @@ namespace CLASS_MANAGER.Controllers
 
 
         [HttpPost]
-        public IActionResult Signup(UserModel oUser)
+        public IActionResult NewUser(UserModel oUser)
         {
             bool ans = _userData.SaveUser(oUser);
 
@@ -83,6 +84,6 @@ namespace CLASS_MANAGER.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "UserMaintainer");
-        }
-    }
+        }        
+    }      
 }

@@ -12,7 +12,8 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
-
+    option.LoginPath = "/Home/Index";
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(15);
     option.AccessDeniedPath = "/Home/Privacy";
 });
     
