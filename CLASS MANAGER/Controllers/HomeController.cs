@@ -85,6 +85,15 @@ namespace CLASS_MANAGER.Controllers
                 return View();
             }
         }
+
+        //=============================================Coordinators=================================================
+        
+        public IActionResult ListCoordinators()
+        {
+            var coordiantor = _userData.ListCoordinators();
+           return View(coordiantor);
+        }
+
         //==============================================Errors======================================================
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

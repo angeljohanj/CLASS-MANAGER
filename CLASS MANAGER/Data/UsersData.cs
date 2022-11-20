@@ -336,5 +336,43 @@ namespace CLASS_MANAGER.Data
 
             return ans;
         }            
+//=================================================For coordinator data================================
+
+         public List<UserModel> ListCoordinators()
+        {
+            var oCoor = new List<UserModel>();
+
+            var connection = new DataConnection();
+
+            using (var conn = new SqlConnection(connection.GetString()))
+            {
+                conn.Open();
+                var sqlCmd = new SqlCommand("sp_ListCoordinators", conn);
+                sqlCmd.CommandType = CommandType.StoredProcedure;
+
+                using (var dReader = sqlCmd.ExecuteReader())
+                {
+                    while (dReader.Read())
+                    {
+                        oCoor.Add(new UserModel
+                        {
+                            UserName = dReader["UserName"].ToString(),
+                            UserRole = dReader["UserROle"].ToString(),
+                            Name = dReader["Name"].ToString(),
+                            Lastname = dReader["Lastname"].ToString(),
+                            Age = dReader["Age"].ToString(),
+                            Cedula = dReader["Cedula"].ToString(),
+                            Address = dReader["Address"].ToString(),
+                            Email = dReader["Email"].ToString(),
+                            Telephone = dReader["telephone"].ToString(),
+                            Shift = dReader["Shift"].ToString(),
+                            Center = dReader["Center"].ToString(),
+                        });
+                    }
+                }  
+            }
+            return oCoor;
+        }
+
     } 
 }

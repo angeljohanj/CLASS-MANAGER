@@ -1,0 +1,52 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "ListCoordinators";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row justify-content-center">
+    <div class="col-4 cList-col">
+        <h3>Coordinators</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Name</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>Cedula</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Shift</th>
+                    <th>Center</th>        
+                    <th>Actions</th>
+                </tr>
+            </thead>
+                @foreach(var i in Model){
+                    <tr>
+                    <td>@i.UserName</td>
+                    <td>@i.UserRole</td>
+                    <td>@i.Name</td>
+                    <td>@i.Lastname</td>
+                    <td>@i.Age</td>
+                    <td>@i.Cedula</td>
+                    <td>@i.Address</td>
+                    <td>@i.Email</td>
+                    <td>@i.Telephone</td>
+                    <td>@i.Shift</td>
+                    <td>@i.Center</td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="SoftDelete" asp-controller="Home">Delete</a>
+                        <a class="btn btn-success" asp-action="EditCoordinator" asp-controller="Home">Edit</a>
+                    </td>
+                    </tr>
+                }
+        </table>
+            
+    </div>
+</div>
