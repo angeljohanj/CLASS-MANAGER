@@ -13,8 +13,8 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
 {
     option.LoginPath = "/Home/Index";
-    option.ExpireTimeSpan = TimeSpan.FromMinutes(15);
-    option.AccessDeniedPath = "/Home/Privacy";
+    option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    option.AccessDeniedPath = "/UserMaintainer/Login";
 });
     
 
@@ -39,6 +39,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=ListCoordinators}/{id?}");
+    pattern: "{controller=UserMaintainer}/{action=Login}/{id?}");
 
 app.Run(); 

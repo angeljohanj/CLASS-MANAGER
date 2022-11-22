@@ -19,6 +19,9 @@ namespace CLASS_MANAGER.Controllers
         UsersData _userData = new UsersData();
 
         ///=========================THESE VIEWS ARE FOR THE LOGIN, NEW USER AND SIGNOUT=========>>>>>>>>>>>>>
+
+
+
         //---------Method only returns Login View Form---------------->>>>>
         public IActionResult Login()
         {
@@ -52,6 +55,8 @@ namespace CLASS_MANAGER.Controllers
                 }
                 else
                 {
+                    
+                    
                     return View();
                 }            
         }     
@@ -67,16 +72,25 @@ namespace CLASS_MANAGER.Controllers
         [HttpPost]
         public IActionResult NewUser(UserModel oUser)
         {
-            bool ans = _userData.SaveUser(oUser);
-
-            if (ans)
+            if (oUser.UserName == null || oUser.UserPassword == null || oUser.Name == null || oUser.Lastname == null
+                || oUser.Age == null || oUser.Cedula == null || oUser.Address == null || oUser.Telephone == null
+                || oUser.Email == null)
             {
-                return RedirectToAction("Login", "UserMaintainer");
+                return View();
             }
             else
             {
-                return View();
+                bool ans = _userData.SaveUser(oUser);
 
+                if (ans)
+                {
+                    return RedirectToAction("Login", "UserMaintainer");
+                }
+                else
+                {
+                    return View();
+
+                }
             }
         }
 

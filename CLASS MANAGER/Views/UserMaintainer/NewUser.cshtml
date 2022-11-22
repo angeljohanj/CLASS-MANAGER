@@ -3,6 +3,7 @@
     ViewData["Title"] = "Signup";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="/js/site.js"></script>
 
 <div class="col-4 signup">
         <div >
@@ -11,18 +12,18 @@
 
         <hr>
         <!--Here is the signup form-->
-                 <form asp-action="NewUser" asp-controller="UserMaintainer" class="row g-3 needs-validation" novalidate>
+                 <form asp-action="NewUser" asp-controller="UserMaintainer" class="row g-3 needs-validation" id="newUser" >
                     
                      <!--User and password-->
 
                         <div class="col-md-4">
                             <label for="validationCustomUsername" class="form-label">Username</label>
-                            <input asp-for="UserName" type="text" class="form-control" id="validationCustom02" required>
+                            <input asp-for="UserName" type="text" class="form-control" id="usernameInput">
                             <div class="input-group has-validation">
                             </div>
 
                             <label for="validationCustomUsername" class="form-label">Password</label>
-                            <input asp-for="UserPassword" type="password" class="form-control" id="validationCustom02" required>
+                            <input asp-for="UserPassword" type="password" class="form-control" id="passwordInput" >
                             <div class="input-group has-validation">
                             </div>
                         </div>
@@ -31,31 +32,32 @@
                      
                      <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Name</label>
-                        <input asp-for="Name" type="text" class="form-control" id="validationCustom01" placeholder="Ex: Juan" required>
+                        <input asp-for="Name" type="text" class="form-control" id="nameInput" placeholder="Ex: Juan" >
 
                         <label for="validationCustom02" class="form-label">Last name</label>
-                        <input asp-for="Lastname" type="text" class="form-control" id="validationCustom02" placeholder="Ex: Santana" required>
+                        <input asp-for="Lastname" type="text" class="form-control" id="lastnameInput" placeholder="Ex: Santana" >
 
                         
                     </div>
                     <div class="col-md-4">
 
                         <label for="validationCustom01" class="form-label">Age</label>
-                        <input asp-for="Age" type="text" class="form-control" id="validationCustom01" required>
+                        <input asp-for="Age" type="text" class="form-control" id="ageInput" >
                         
                         <label for="validationCustom01" class="form-label">Cedula/ID</label>
-                        <input asp-for="Cedula" type="text" class="form-control" id="validationCustom01" placeholder="Ex: 402-3334433-7" required>
+                        <input asp-for="Cedula" type="text" class="form-control" id="cedulaInput" placeholder="Ex: 402-3334433-7" >
 
                     </div>
 
                     <div class="col-md-6">
                         <label for="validationCustom03" class="form-label">Address</label>
-                        <input asp-for="Address" type="text" class="form-control" id="validationCustom03" placeholder="Ex: Street # Neighborhood City" required>
+                        <input asp-for="Address" type="text" class="form-control" id="addressInput" placeholder="Ex: Street # Neighborhood City" >
 
                         <label for="validationCustomUsername" class="form-label">Telephone</label>
-                        <input asp-for="Telephone" type="text" class="form-control" id="validationCustom02" placeholder="809-444-5555" required>
+                        <input asp-for="Telephone" type="text" class="form-control" id="telephoneInput" placeholder="809-444-5555" >
+                        
                         <label for="validationCustomUsername" class="form-label">Email</label>
-                        <input asp-for="Email" type="email" class="form-control" id="validationCustom02" placeholder="example@gmail.com" required>                    
+                        <input asp-for="Email" type="email" class="form-control" id="emailINput" placeholder="example@gmail.com" >                    
                     </div>
 
 
@@ -84,12 +86,10 @@
                                 <option>UAPA Zona Oriental</option>
                             </select>
                             
-                         </div>                    
+                         </div>  
 
                     <div class="col-12">
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-success" type="submit">Create User</button>
+                        <button class="btn btn-success" onclick="ValidateNewUser()" >Create User</button>
                     </div>
                 </form>
     </div>
