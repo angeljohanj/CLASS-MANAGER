@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,31 +23,55 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        @if (User.IsInRole("Teacher") || User.IsInRole("Supervisor") || User.IsInRole("Coordinator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                        }
                         @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StudentMaintainer" asp-action="ListStu">Students</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListTeachers">Teachers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListCoordinators">Coordinators</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TeachersMaintainer" asp-action="ListTeachers">Supervisors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="NewUser">New user</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="Signout">Exit</a>
-                        </li>
+                        @if (User.IsInRole("Teacher") || User.IsInRole("Supervisor") || User.IsInRole("Coordinator"))
+                        {
+
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="StudentMaintainer" asp-action="ListStu">Students</a>
+                            </li>
+                        }
+
+                        @if(User.IsInRole("Coordinator")|| User.IsInRole("Supervisor")){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListTeachers">Teachers</a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Supervisor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListCoordinators">Coordinators</a>
+                            </li>
+                        }
+                        
+                        @if(User.IsInRole("Supervisor")){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TeachersMaintainer" asp-action="ListTeachers">Supervisors</a>
+                            </li>
+                        }
+
+                        @if(User.IsInRole("Supervisor")){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="NewUser">New user</a>
+                            </li>
+                        }
+                        
+                        @if (User.IsInRole("Teacher") || User.IsInRole("Supervisor") || User.IsInRole("Coordinator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="Signout">Exit</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

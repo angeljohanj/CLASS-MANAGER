@@ -66,48 +66,5 @@ function ValidateNewUser() {
         document.getElementById("newUser").submit();
     }
 
-
-  /*  var newUser= [
-        user = document.getElementById("usernameInput").value,
-        pass = document.getElementById("passwordInput").value,
-        name = document.getElementById("nameInput").value,
-        lastname = document.getElementById("lastnameInput").value,
-        age = document.getElementById("ageInput").value,
-        cedula = document.getElementById("cedulaInput").value,
-        address = document.getElementById("addressInput").value,
-        telephone = document.getElementById("telephoneInput").value,
-        email = document.getElementById("emailINput").value
-        ]
-    
-       
-    switch (newUser[0,1,2,3,4,5,6,7,8]) {
-
-        case (newUser[0] == ""):
-            alert("this is a string");
-            break;
-        case (newUser[1] == ""):
-            alert("Password is mandatory");
-            break;
-        case (newUser[2] == ""):
-            alert("Name is mandatory");
-            break;
-        case (newUser[3] == ""):
-            alert("Lastname is mandatory");
-            break;
-        case (newUser[4] == ""):
-            alert("Age is mandatory");
-            break;
-        case (newUser[5] == ""):
-            alert("Cedula is mandatory");
-            break;
-        case (newUser[6] == ""):
-            alert("Address is mandatory");
-            break;
-        case (newUser[7] == ""):
-            alert("Telephone is mandatory");
-            break;
-        case (newUser[8] == ""):
-            alert("Email is mandatory");
-            break;
-    }*/
+  
 }

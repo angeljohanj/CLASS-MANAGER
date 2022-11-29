@@ -33,6 +33,7 @@ namespace CLASS_MANAGER.Data
                             isUser.UserName = dReader["UserName"].ToString();
                             isUser.Email = dReader["Email"].ToString();
                             isUser.UserRole = dReader["UserRole"].ToString();
+                            isUser.UserID =Convert.ToInt32( dReader["UserID"]);
                             conn.Close();
                         }                                            
                                                                  

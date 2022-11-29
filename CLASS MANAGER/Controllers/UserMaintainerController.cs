@@ -21,7 +21,6 @@ namespace CLASS_MANAGER.Controllers
         ///=========================THESE VIEWS ARE FOR THE LOGIN, NEW USER AND SIGNOUT=========>>>>>>>>>>>>>
 
 
-
         //---------Method only returns Login View Form---------------->>>>>
         public IActionResult Login()
         {
@@ -32,19 +31,20 @@ namespace CLASS_MANAGER.Controllers
         public async Task<IActionResult> Login(UserModel oUser)
         {
             var isUser = _userData.ValidateUser(oUser);
-            
-                if (isUser != null) {
+                
+                if (isUser != null && isUser.UserID!=0) {
 
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, isUser.UserName),
-                    new Claim("Email", isUser.Email)
+                    new Claim("Email", isUser.Email),
+                    new Claim(ClaimTypes.Role, isUser.UserRole)
                 };
 
-                foreach (var role in isUser.UserRole)
+                /*foreach (var role in isUser.UserRole)
                 {
                     claims.Add(new Claim(ClaimTypes.Role, role.ToString()));
-                }
+                }*/
 
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                  
@@ -54,9 +54,7 @@ namespace CLASS_MANAGER.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 else
-                {
-                    
-                    
+                {   
                     return View();
                 }            
         }     

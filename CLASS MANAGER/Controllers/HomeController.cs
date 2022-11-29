@@ -2,12 +2,12 @@
 using CLASS_MANAGER.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace CLASS_MANAGER.Controllers
 {
 
-    
+   
     public class HomeController : Controller
     {
         
@@ -18,8 +18,8 @@ namespace CLASS_MANAGER.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        } 
-
+        }
+        [Authorize(Roles = "Teacher,Coordinator,Supervisor")]
         public IActionResult Index()
         {
             return View();
@@ -34,6 +34,8 @@ namespace CLASS_MANAGER.Controllers
 
 
         //=====================================To List Teachers=====================================================
+
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult ListTeachers()
         {
             var teacherList = _userData.ListTeachers();
@@ -42,6 +44,7 @@ namespace CLASS_MANAGER.Controllers
         }
 
         ///==================================== To Edit Teachers====================================================
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult EditTeacher(int userID)
         {
             var user = _userData.GetUser(userID);        
@@ -64,6 +67,7 @@ namespace CLASS_MANAGER.Controllers
 
         }
         //==================================== To Soft-Delete a teacher=============================================
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult DeleteTeacher(int userID)
         {
             var user = _userData.GetUser(userID);
@@ -87,7 +91,7 @@ namespace CLASS_MANAGER.Controllers
         }
 
         //=============================================Coordinators=================================================
-        
+        [Authorize(Roles = "Supervisor")]
         public IActionResult ListCoordinators()
         {
             var coordiantor = _userData.ListCoordinators();

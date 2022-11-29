@@ -64,6 +64,10 @@ td {
     text-overflow: ellipsis !important;
     overflow: hidden !important;
 }
+
+.col {
+    padding: 25px;
+}
 .tlist-col {
     background-color: white;
     border-radius: 20px;

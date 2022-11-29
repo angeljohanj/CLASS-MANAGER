@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CLASS_MANAGER.Data;
 using CLASS_MANAGER.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace CLASS_MANAGER.Controllers { 
+namespace CLASS_MANAGER.Controllers {
 
-  
+    
     public class StudentMaintainerController : Controller
     {
         StudentsData _studentsData = new StudentsData();
+
+        [Authorize(Roles ="Teacher,Coordinator,Supervisor")]
         public IActionResult ListStu()
         {
             var oListStu = _studentsData.StuList();
@@ -15,6 +18,8 @@ namespace CLASS_MANAGER.Controllers {
         }
 
         //-----------------------Only returns view------------>
+
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult SaveStu()
         {
             return View();
@@ -43,6 +48,7 @@ namespace CLASS_MANAGER.Controllers {
             }
          }
 
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult EditStu(int studentID)
         {
             var student = _studentsData.GetStu(studentID);
@@ -70,6 +76,7 @@ namespace CLASS_MANAGER.Controllers {
             }
         }
 
+        [Authorize(Roles = "Coordinator,Supervisor")]
         public IActionResult DelStu(int studentID)
         {
             var oStu = _studentsData.GetStu(studentID);
