@@ -17,7 +17,7 @@ body {
     margin-bottom: 60px;
    background-image:url(../images/img3.jpg);
    background-size: 100% 100%;
-  
+   background-repeat:no-repeat;
 }
 .title{
     color: white;
@@ -74,7 +74,9 @@ td {
     justify-content: center;
     width: 1070px;
     max-width: max-content;
-    margin-bottom:500px;
+    margin-bottom: 500px;
+    table-layout: fixed;
+    width: 1200px;
 }
 
 .tEdit-col {
