@@ -5,9 +5,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CLASS_MANAGER.Controllers
-{
-
-   
+{   
     public class HomeController : Controller
     {
         

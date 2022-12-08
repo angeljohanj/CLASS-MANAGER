@@ -27,13 +27,39 @@ body {
     color:black;
 }
 
-.login{
 
-    background-color:white;
+/*Styling for layout*/
+
+.logo {
+    width: 150px;
+    height: 40px;
+    margin-bottom:5px;
+}
+
+.form-control {
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+}
+
+.bg-white {
+    background-color: transparent !important;
+}
+
+.text-dark {
+    color: white !important;
+}
+
+.text-dark:hover {
+text-shadow: 1px 1px 7px;
+}
+
+.login {
+    background-color: white;
     border-radius: 15px;
-    width:350px;
+    width: 350px;
     padding: 20px;
-    margin-bottom:300px;
+    margin-bottom: 300px;
 }
 
 .signup {
@@ -45,16 +71,14 @@ body {
     margin-bottom: 200px;
 }
 
-.forgotPass{
-    margin-left:100px;
+.forgotPass {
+    margin-left: 100px;
 }
 
-/*Styling for layout*/
-
-.logo {
-    width: 150px;
-    height: 40px;
-    margin-bottom:5px;
+/*For login form*/
+h3 {
+    display: flex;
+    justify-content: center;
 }
 
 /*For teacher-management views*/

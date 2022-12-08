@@ -26,7 +26,12 @@
                         @if (User.IsInRole("Teacher") || User.IsInRole("Supervisor") || User.IsInRole("Coordinator"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                                    <span class="material-symbols-outlined">
+                                        home
+                                    </span>
+                                    Home
+                                </a>
                             </li>
                         }
                         @*<li class="nav-item">
@@ -37,13 +42,21 @@
                         {
 
                             <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="StudentMaintainer" asp-action="ListStu">Students</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="StudentMaintainer" asp-action="ListStu">
+                                    <span class="material-symbols-outlined">
+                                        group
+                                    </span>
+                                Students</a>
                             </li>
                         }
 
                         @if(User.IsInRole("Coordinator")|| User.IsInRole("Supervisor")){
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListTeachers">Teachers</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ListTeachers">
+                                    <span class="material-symbols-outlined">
+                                        supervisor_account
+                                    </span>
+                                    Teachers</a>
                             </li>
                         }
 
@@ -69,7 +82,12 @@
                         @if (User.IsInRole("Teacher") || User.IsInRole("Supervisor") || User.IsInRole("Coordinator"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="Signout">Exit</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserMaintainer" asp-action="Signout">
+                                    <span class="material-symbols-outlined">
+                                        logout
+                                    </span>
+                                    Exit
+                                </a>
                             </li>
                         }
                     </ul>
